@@ -3,7 +3,8 @@ Tracker of weed consumption
 
 
 # v. 0.1
-
+-Added AppBar and centred it
+-Added NavBar and all needed icons. 
 
 #
 
