@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'splash_screen.dart'; // Upewnij się, że zaimportowałeś SplashScreen
+import 'home_page.dart';
+import 'settings_page.dart';
+import 'splash_screen.dart';
+import 'stats_page.dart'; // Upewnij się, że zaimportowałeś SplashScreen
+import 'strains_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,11 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
 
   final tabs = [
-    Center(child: Text('Strona 1')),
-    Center(child: Text('Strona 2')),
-    Center(child: Text('Strona 3')),
-    Center(child: Text('Strona 4')),
-
+    HomePage(),
+    StrainsPage(),
+    StatsPage(),
+    SettingsPage(), // To jest Twoja nowa strona ustawień
   ];
 
   @override
@@ -44,13 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('My Weed Consumption'),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-
-
-      ),
+      body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.white ,         //  KOLOR: ZAZNACZENEJ IKONKI
-        unselectedItemColor: Colors.black,          //  KOLOR: NIEZAZNACZONEGO
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.black,
         backgroundColor: Colors.green[700],
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
@@ -60,13 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
             label: ' Home ',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.cannabis), // Użyj ikony marihuany z FontAwesome
+            icon: Icon(FontAwesomeIcons.cannabis),
             label: 'Strains',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.auto_graph),
             label: 'Stats',
-          ),BottomNavigationBarItem(
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings ',
           ),
