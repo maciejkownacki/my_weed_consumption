@@ -6,8 +6,8 @@ Tracker of weed consumption
 -Added AppBar and centred it
 -Added NavBar and all needed icons. 
 
-#
-
+# v. 0.2
+-Added working SplashScreen 
 #
 
 

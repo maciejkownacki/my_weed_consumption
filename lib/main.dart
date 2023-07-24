@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'splash_screen.dart'; // Upewnij się, że zaimportowałeś SplashScreen
 
 void main() {
   runApp(MyApp());
@@ -13,9 +13,8 @@ class MyApp extends StatelessWidget {
       title: 'Moja Aplikacja',
       theme: ThemeData(
         primarySwatch: Colors.green,
-
       ),
-      home: MyHomePage(),
+      home: SplashScreen(), // Zmieniamy MyHomePage na SplashScreen
     );
   }
 }
@@ -45,7 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('My Weed Consumption'),
         centerTitle: true,
       ),
-      body: tabs[_currentIndex],
+      body: SingleChildScrollView(
+
+
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white ,         //  KOLOR: ZAZNACZENEJ IKONKI
         unselectedItemColor: Colors.black,          //  KOLOR: NIEZAZNACZONEGO
