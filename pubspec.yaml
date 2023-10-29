@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^9.1.0
-
+  syncfusion_flutter_datagrid: ^23.1.42
 
 
 

@@ -10,6 +10,8 @@ void main() {
   runApp(MyApp());
 }
 
+
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,50 @@ class _MyHomePageState extends State<MyHomePage> {
     SettingsPage(), // To jest Twoja nowa strona ustawień
   ];
 
+  void _showAddEntryDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Dodaj nowy wpis'),
+          content: SingleChildScrollView( // Dodano SingleChildScrollView dla przewijania
+            child: Column(
+              mainAxisSize: MainAxisSize.min, // Ustawienie rozmiaru na minimum
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Data',
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: 'Odmiana',
+                  ),
+                ),
+                // ... Dodaj tu pozostałe pola formularza
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              child: Text('Dodaj'),
+              onPressed: () {
+                // Tutaj będziemy zapisywać dane
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Anuluj'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +93,24 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('My Weed Consumption'),
         centerTitle: true,
       ),
-      body: tabs[_currentIndex],
+      body: Stack(
+        children: [
+          // Tło (Twoje strony)
+          tabs[_currentIndex],
+          // FloatingActionButton na dole i w poziomie
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 16.0),
+              child: FloatingActionButton(
+                onPressed: _showAddEntryDialog,
+                child: Icon(Icons.add),
+                tooltip: 'Dodaj nowy wpis',
+              ),
+            ),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black,
