@@ -5,6 +5,8 @@ import 'settings_page.dart';
 import 'splash_screen.dart';
 import 'stats_page.dart'; // Upewnij się, że zaimportowałeś SplashScreen
 import 'strains_page.dart';
+import 'entry.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -98,17 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Tło (Twoje strony)
           tabs[_currentIndex],
           // FloatingActionButton na dole i w poziomie
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: FloatingActionButton(
-                onPressed: _showAddEntryDialog,
-                child: Icon(Icons.add),
-                tooltip: 'Dodaj nowy wpis',
-              ),
-            ),
-          ),
+
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
